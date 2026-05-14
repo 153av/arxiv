@@ -1,0 +1,43 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "arXiv API",
+    "description": "arXiv论文搜索接口",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://export.arxiv.org/api"
+    }
+  ],
+  "paths": {
+    "/query": {
+      "get": {
+        "summary": "搜索论文",
+        "operationId": "searchPapers",
+        "parameters": [
+          {
+            "name": "search_query",
+            "in": "query",
+            "required": true,
+            "schema": { "type": "string" },
+            "description": "搜索关键词"
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "schema": { "type": "integer", "default": 0 }
+          },
+          {
+            "name": "max_results",
+            "in": "query",
+            "schema": { "type": "integer", "default": 10 }
+          }
+        ],
+        "responses": {
+          "200": { "description": "成功返回搜索结果" }
+        }
+      }
+    }
+  }
+}
