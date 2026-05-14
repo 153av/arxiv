@@ -7,35 +7,45 @@
   },
   "servers": [
     {
-      "url": "http://export.arxiv.org/api"
+      "url": "http://xxx.itp.ac.cn/api"
     }
   ],
   "paths": {
     "/query": {
       "get": {
         "summary": "搜索论文",
-        "operationId": "searchPapers",
+        "operationId": "arxiv_search",
         "parameters": [
           {
             "name": "search_query",
             "in": "query",
             "required": true,
-            "schema": { "type": "string" },
+            "schema": {
+              "type": "string"
+            },
             "description": "搜索关键词"
           },
           {
             "name": "start",
             "in": "query",
-            "schema": { "type": "integer", "default": 0 }
+            "schema": {
+              "type": "integer",
+              "default": 0
+            }
           },
           {
             "name": "max_results",
             "in": "query",
-            "schema": { "type": "integer", "default": 10 }
+            "schema": {
+              "type": "integer",
+              "default": 10
+            }
           }
         ],
         "responses": {
-          "200": { "description": "成功返回搜索结果" }
+          "200": {
+            "description": "成功返回搜索结果"
+          }
         }
       }
     }
