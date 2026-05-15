@@ -2,12 +2,12 @@
   "openapi": "3.1.0",
   "info": {
     "title": "arXiv API",
-    "description": "arXiv论文搜索接口",
+    "description": "搜索 arXiv 上的学术论文",
     "version": "1.0.0"
   },
   "servers": [
     {
-      "url": "http://xxx.itp.ac.cn/api"
+      "url": "https://export.arxiv.org/api"
     }
   ],
   "paths": {
@@ -19,15 +19,17 @@
           {
             "name": "search_query",
             "in": "query",
+            "description": "搜索关键词，例如: 'machine learning' 或 'all:physics'",
             "required": true,
             "schema": {
               "type": "string"
-            },
-            "description": "搜索关键词"
+            }
           },
           {
             "name": "start",
             "in": "query",
+            "description": "分页起始位置",
+            "required": false,
             "schema": {
               "type": "integer",
               "default": 0
@@ -36,15 +38,17 @@
           {
             "name": "max_results",
             "in": "query",
+            "description": "返回结果数量",
+            "required": false,
             "schema": {
               "type": "integer",
-              "default": 10
+              "default": 5
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "成功返回搜索结果"
+            "description": "OK"
           }
         }
       }
